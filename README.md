@@ -2,7 +2,7 @@
 
 ![Status do Projeto](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 
-Um projeto escolar simples para um sistema de gerenciamento de vendas de ingressos de cinema, desenvolvido em linguagem C.
+Um projeto de faculdade simples para um sistema de gerenciamento de vendas de ingressos de cinema, desenvolvido em linguagem C.
 
 ## 📝 Descrição do Projeto
 
@@ -20,25 +20,34 @@ O **CineManager** é um sistema de linha de comando projetado para simular as op
 
 O projeto ainda está em sua fase inicial, mas as seguintes funcionalidades estão planejadas:
 
--   [ ] **Gerenciamento de Filmes:**
-    -   [ ] Cadastrar novos filmes (título, gênero, duração, classificação indicativa).
-    -   [ ] Listar todos os filmes em cartaz.
+-   [ ] *Gerenciamento de Filmes:*
+    -   [ ] Cadastrar novos filmes (título, gênero, sinopse, duração, classificação indicativa).
+    -   [ ] Atualizar informações de um filme existente.
+    -   [ ] Listar todos os filmes cadastrados.
     -   [ ] Buscar por um filme específico.
-    -   [ ] Remover um filme.
--   [ ] **Gerenciamento de Salas:**
+    -   [ ] Remover um filme do catálogo.
+
+-   [ ] *Gerenciamento de Salas:*
     -   [ ] Cadastrar salas de cinema (número da sala, capacidade).
-    -   [ ] Listar todas as salas.
--   [ ] **Gerenciamento de Sessões:**
-    -   [ ] Agendar uma nova sessão para um filme em uma sala.
-    -   [ ] Exibir sessões disponíveis.
-    -   [ ] Cancelar uma sessão.
--   [ ] **Venda de Ingressos:**
+    -   [ ] Listar todas as salas cadastradas.
+
+-   [ ] *Gerenciamento de Sessões:*
+    -   [ ] Agendar uma nova sessão (associar filme, sala, data, horário e preço).
+    -   [ ] Exibir todas as sessões disponíveis.
+    -   [ ] Cancelar uma sessão agendada.
+
+-   [ ] *Venda de Ingressos:*
     -   [ ] Realizar a venda de ingressos para uma sessão.
-    -   [ ] Exibir a disponibilidade de assentos.
-    -   [ ] Calcular o total da venda.
--   [ ] **Relatórios:**
-    -   [ ] Gerar relatório de vendas por sessão.
+    -   [ ] Exibir a disponibilidade de assentos para uma sessão.
+    -   [ ] Calcular o valor total da venda.
+
+-   [ ] *Relatórios:*
+    -   [ ] Gerar relatório de vendas por sessão (ingressos vendidos, receita, taxa de ocupação).
     -   [ ] Gerar relatório de ocupação por sala.
+
+-   [ ] *Persistência de Dados:*
+    -   [ ] Salvar todos os dados (filmes, salas, sessões) em disco ao fechar o programa.
+    -   [ ] Carregar todos os dados do disco ao iniciar o programa.
 
 ## 💻 Tecnologias Utilizadas
 
