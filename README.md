@@ -95,9 +95,9 @@ Este projeto está sendo desenvolvido por:
 
 | Nome do Aluno | GitHub |
 | :--- | :---: |
-| Arthur Miele Malveste | [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/SEU-USUARIO)](https://github.com/SEU-USUARIO) |
-| Hyago Sampaio Alves | [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/USUARIO-COLEGA-1)](https://github.com/USUARIO-COLEGA-1) |
-| Erik Amorim Silva | [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/USUARIO-COLEGA-2)](https://github.com/USUARIO-COLEGA-2) |
+| Arthur Miele Malveste | [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/arthurMalveste)](https://github.com/arthurMalveste) |
+| Hyago Sampaio Alves | [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/HyagoAlv3s)](https://github.com/HyagoAlv3s) |
+| Erik Amorim Silva | [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/erik4morim)](https://github.com/erik4morim) |
 | Vitor Herique Marques Silva | [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/USUARIO-COLEGA-1)](https://github.com/USUARIO-COLEGA-1) |
-| Gabriel Morais Felix | [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/USUARIO-COLEGA-1)](https://github.com/USUARIO-COLEGA-1) |
+| Gabriel Morais Felix | [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link=https://github.com/fgabrielmorais)](https://github.com/fgabrielmorais) |
 
