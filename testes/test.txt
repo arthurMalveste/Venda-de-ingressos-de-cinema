@@ -1,0 +1,23 @@
+Caso você tenha separado algum teste para colocar no programa, deixe-o aqui:
+
+-- TESTE NA MAIN PARA O CRUD DOS FILMES:
+    Filme f1 = {1, "Corra", "Acao", "Corre dos manos", 120, 18, 1, 29.25};
+    Filme f2 = {2, "Toy Story", "Comedia", "Bonecos malucos", 120, 18, 1, 29.25};
+    adicionarFilmes(filename, f1);
+    adicionarFilmes(filename, f2);
+    
+
+    //realizando busca
+    printf("Filmes em cartazes: \n\n");
+    listarFilmes(filename);
+
+
+    //aplicando a exclusão de um filme
+    printf("Excluindo um filme... \n");
+    removerFilmes(filename, "Toy Story");
+
+
+    //atualizando o valor de um filme
+    Filme fAtualizado = {1, "Ande", "acao", "Andando com o pente estendido", 120, 18, 1, 29.25};
+    printf("Atualizando o filme solicitado... \n\n");
+    atualizarInfoFilmes(filename, "Corra", fAtualizado);

@@ -4,6 +4,9 @@
 
 
 
+
+
+
 //Struct dos filmes (Suas informações)
 typedef struct{
     int ID;
@@ -24,16 +27,10 @@ void adicionarFilmes(const char *arquivo, Filme filme_novo);
 //atualizar as informações do filme
 void atualizarInfoFilmes(const char *arquivo, const char *titulo, Filme atualizado);
 
-
 //listar filme
 void listarFilmes(const char *arquivo);
 
-
-//buscar um único filme
-void buscarFilmes(const char *arquivo);
-
-
-//remover filme
+// remover filme
 void removerFilmes(const char *arquivo, const char *titulo);
 
 
