@@ -259,4 +259,3 @@ void cancelarSessao() {
         }
     } while (opcao != 0); // O loop termina quando o usuário digita 0
 }
-
