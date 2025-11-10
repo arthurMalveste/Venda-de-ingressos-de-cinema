@@ -1,12 +1,12 @@
 /*
  * Arquivo: sessoes.h
- * Descrição: Header (cardápio) para o módulo de gerenciamento de sessões.
- * Define as estruturas de dados e os protótipos das funções públicas.
+ * DescriÃ§Ã£o: Header (cardÃ¡pio) para o mÃ³dulo de gerenciamento de sessÃµes.
+ * Define as estruturas de dados e os protÃ³tipos das funÃ§Ãµes pÃºblicas.
  */
 
-// 1. "Guardas de Inclusão"
-// Evitam que este arquivo seja incluído mais de uma vez por engano,
-// o que causaria erros de "redefinição".
+// 1. "Guardas de InclusÃ£o"
+// Evitam que este arquivo seja incluÃ­do mais de uma vez por engano,
+// o que causaria erros de "redefiniÃ§Ã£o".
 #ifndef SESSOES_H
 #define SESSOES_H
 
@@ -19,49 +19,46 @@ typedef struct {
     int ano;
 } Data;
 
-// Struct auxiliar para o Horário
+// Struct auxiliar para o HorÃ¡rio
 typedef struct {
     int hora;
     int minuto;
 } Horario;
 
-// Struct principal para a Sessão
+// Struct principal para a SessÃ£o
 typedef struct {
-    int id_sessao;      // ID único (ex: 1, 2, 3...)
-    int id_filme;       // ID do filme (do módulo de filmes)
-    int id_sala;        // ID da sala (do módulo de salas)
+    int id_sessao;      // ID Ãºnico (ex: 1, 2, 3...)
+    int id_filme;       // ID do filme (do mÃ³dulo de filmes)
+    int id_sala;        // ID da sala (do mÃ³dulo de salas)
     Data data_sessao;   // Struct de Data aninhada
-    Horario hora_sessao; // Struct de Horário aninhada
+    Horario hora_sessao; // Struct de HorÃ¡rio aninhada
     float preco;
     int status;         // 1 = Ativa, 0 = Cancelada
 } Sessao;
 
-
-// --- Protótipos das Funções Públicas ---
-// Estas são as três funções que prometemos fornecer.
-
 /*
- * Agendamento de uma nova sessão.
- * Pede os dados ao usuário e salva no arquivo.
+ * Agendamento de uma nova sessÃ£o.
+ * Pede os dados ao usuÃ¡rio e salva no arquivo.
  */
 void agendarSessao();
 
 /*
- * Exibe todas as sessões ativas (status == 1)
+ * Exibe todas as sessÃµes ativas (status == 1)
  * cadastradas no arquivo.
  */
 void exibirSessoesDisponiveis();
 
 /*
- * Cancela uma sessão.
- * Pede um ID ao usuário, busca no arquivo e muda seu status para 0.
+ * Cancela uma sessÃ£o.
+ * Pede um ID ao usuÃ¡rio, busca no arquivo e muda seu status para 0.
  */
 void cancelarSessao();
 /*
- * Exibe o menu de gerenciamento de sessões
- * e permite ao usuário escolher as ações (agendar, listar, cancelar).
+ * Exibe o menu de gerenciamento de sessÃµes
+ * e permite ao usuÃ¡rio escolher as aÃ§Ãµes (agendar, listar, cancelar).
  */
 void menuGerenciarSessoes();
 
 
-#endif // Fim da guarda de inclusão
+#endif // Fim da guarda de inclusÃ£o
+
