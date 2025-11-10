@@ -2,11 +2,6 @@
 #define FILMES_H
 #include <stdio.h>
 
-
-
-
-
-
 //Struct dos filmes (Suas informações)
 typedef struct{
     int ID;
@@ -20,6 +15,11 @@ typedef struct{
 } Filme;
 
 
+//menu de gerenciamento de filmes
+void menuGerenciarFilmes(const char *arquivo);
+
+// Nova função para coletar dados do usuário
+Filme coletarDadosFilme();
 
 //adicionar filme
 void adicionarFilmes(const char *arquivo, Filme filme_novo);
