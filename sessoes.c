@@ -1,50 +1,45 @@
 /*
  * Arquivo: sessoes.c
- * DescriÁ„o: ImplementaÁ„o (cÛdigo) das funÁıes do mÛdulo de sessıes.
- * ContÈm toda a lÛgica de manipulaÁ„o de arquivos e dados.
+ * Descri√ß√£o: Implementa√ß√£o (c√≥digo) das fun√ß√µes do m√≥dulo de sess√µes.
+ * Cont√©m toda a l√≥gica de manipula√ß√£o de arquivos e dados.
  */
 
 #include <stdio.h>    // Para printf, scanf, FILE, fopen, fclose, etc.
 #include <stdlib.h>   // Para malloc, free, exit
-#include "sessoes.h"  // Inclui nosso prÛprio "card·pio" para implementar as funÁıes
+#include "sessoes.h"  
 
 // --- Constantes ---
-// Definir nomes de arquivos como constantes È uma boa pr·tica.
-// Se precisar mudar o nome, vocÍ sÛ muda em um lugar.
+// Definir nomes de arquivos como constantes √© uma boa pr√°tica.
 #define ARQUIVO_SESSOES "sessoes.dat"
 #define ARQUIVO_CONTADOR "contador_sessao.dat"
 
-
-// --- FunÁıes Auxiliares (Privadas) ---
-// Esta funÁ„o sÛ È usada por este mÛdulo, por isso n„o est· no .h
-
 /*
- * ObtÈm um ID ˙nico para a nova sess„o.
- * LÍ o contador do ARQUIVO_CONTADOR, retorna o valor atual
- * e salva o prÛximo valor (valor + 1) de volta no arquivo.
+ * Obt√©m um ID √∫nico para a nova sess√£o.
+ * L√™ o contador do ARQUIVO_CONTADOR, retorna o valor atual
+ * e salva o pr√≥ximo valor (valor + 1) de volta no arquivo.
  */
 int obterProximoIdSessao() {
-    int proximo_id = 1; // ComeÁa em 1 se o arquivo n„o existir
+    int proximo_id = 1; // Come√ßa em 1 se o arquivo n√£o existir
 
-    // 1. Tenta ABRIR o arquivo do contador para LEITURA BIN¡RIA ("rb")
+    // 1. Tenta ABRIR o arquivo do contador para LEITURA BIN√ÅRIA ("rb")
     FILE* f = fopen(ARQUIVO_CONTADOR, "rb");
 
     if (f != NULL) {
-        // Se o arquivo existe, lÍ o ID atual
+        // Se o arquivo existe, l√™ o ID atual
         fread(&proximo_id, sizeof(int), 1, f);
         fclose(f); // Fecha o arquivo de leitura
     }
 
-    // 2. Prepara o PR”XIMO ID e SALVA de volta
+    // 2. Prepara o PR√ìXIMO ID e SALVA de volta
     int id_para_retornar = proximo_id;
     int novo_proximo_id = proximo_id + 1;
 
-    // Abre o arquivo para ESCRITA BIN¡RIA ("wb")
-    // "wb" apaga o conte˙do anterior e escreve do zero.
+    // Abre o arquivo para ESCRITA BIN√ÅRIA ("wb")
+    // "wb" apaga o conte√∫do anterior e escreve do zero.
     f = fopen(ARQUIVO_CONTADOR, "wb");
     if (f == NULL) {
         printf("ERRO FATAL: Nao foi possivel escrever no arquivo contador!\n");
-        exit(1); // Aborta o programa se n„o conseguir salvar o ID
+        exit(1); // Aborta o programa se n√£o conseguir salvar o ID
     }
 
     // Escreve o ID incrementado
@@ -56,13 +51,13 @@ int obterProximoIdSessao() {
 }
 
 
-// --- ImplementaÁ„o das FunÁıes P˙blicas ---
+// --- Implementa√ß√£o das Fun√ß√µes P√∫blicas ---
 
 /*
- * REQUISITO 1: Agendar uma nova sess„o
+ * REQUISITO 1: Agendar uma nova sess√£o
  */
 void agendarSessao() {
-    Sessao nova_sessao; // Cria uma "ficha" em branco na memÛria
+    Sessao nova_sessao; // Cria uma "ficha" em branco na mem√≥ria
 
     printf("--- Agendamento de Nova Sessao ---\n");
     printf("Digite o ID do Filme: ");
@@ -76,12 +71,12 @@ void agendarSessao() {
     printf("Digite o Preco (ex: 25.50): ");
     scanf("%f", &nova_sessao.preco);
 
-    // Pega o ID ˙nico e define o status como "Ativa"
+    // Pega o ID √∫nico e define o status como "Ativa"
     nova_sessao.id_sessao = obterProximoIdSessao();
     nova_sessao.status = 1;
 
     // --- Parte de Escrita no Arquivo ---
-    // Abre o arquivo de sessıes no modo "ab" (Append Binary / Anexar Bin·rio)
+    // Abre o arquivo de sess√µes no modo "ab" (Append Binary / Anexar Bin√°rio)
     // "ab" adiciona no FINAL do arquivo, sem apagar nada.
     FILE* f = fopen(ARQUIVO_SESSOES, "ab");
     if (f == NULL) {
@@ -100,15 +95,15 @@ void agendarSessao() {
 
 
 /*
- * REQUISITO 2: Exibir todas as sessıes disponÌveis
+ * REQUISITO 2: Exibir todas as sess√µes dispon√≠veis
  */
 void exibirSessoesDisponiveis() {
-    Sessao temp_sessao; // Uma "ficha" tempor·ria para carregar os dados
+    Sessao temp_sessao; // Uma "ficha" tempor√°ria para carregar os dados
     int encontrou_alguma = 0;
 
     printf("--- Sessoes Disponiveis ---\n");
 
-    // Abre o arquivo para LEITURA BIN¡RIA ("rb")
+    // Abre o arquivo para LEITURA BIN√ÅRIA ("rb")
     FILE* f = fopen(ARQUIVO_SESSOES, "rb");
     if (f == NULL) {
         printf("Nenhuma sessao cadastrada ainda.\n\n");
@@ -121,7 +116,7 @@ void exibirSessoesDisponiveis() {
     // Se chegar ao fim do arquivo (retorna 0), o loop para.
     while (fread(&temp_sessao, sizeof(Sessao), 1, f) == 1) {
         
-        // Verifica se a sess„o lida est· ATIVA
+        // Verifica se a sess√£o lida est√° ATIVA
         if (temp_sessao.status == 1) {
             printf("----------------------------------\n");
             printf("ID da Sessao: %d\n", temp_sessao.id_sessao);
@@ -143,14 +138,14 @@ void exibirSessoesDisponiveis() {
 
 
 /*
- * REQUISITO 3: Cancelar uma sess„o agendada
- * (ImplementaÁ„o com AlocaÁ„o Din‚mica)
+ * REQUISITO 3: Cancelar uma sess√£o agendada
+ * (Implementa√ß√£o com Aloca√ß√£o Din√¢mica)
  */
 void cancelarSessao() {
     int id_para_cancelar;
     int encontrou = 0;
     int n_sessoes = 0;
-    Sessao* array_de_sessoes = NULL; // Ponteiro para nosso array din‚mico
+    Sessao* array_de_sessoes = NULL; // Ponteiro para nosso array din√¢mico
 
     printf("--- Cancelar Sessao ---\n");
     printf("Digite o ID da sessao que deseja cancelar: ");
@@ -164,10 +159,10 @@ void cancelarSessao() {
         return;
     }
 
-    // 1a. Descobrir o tamanho do arquivo para saber quantas sessıes temos
+    // 1a. Descobrir o tamanho do arquivo para saber quantas sess√µes temos
     fseek(f, 0, SEEK_END); // Move o cursor para o FIM do arquivo
-    long tamanho_total = ftell(f); // Pega a posiÁ„o atual (tamanho total em bytes)
-    rewind(f); // Move o cursor de volta para o INÕCIO do arquivo
+    long tamanho_total = ftell(f); // Pega a posi√ß√£o atual (tamanho total em bytes)
+    rewind(f); // Move o cursor de volta para o IN√çCIO do arquivo
     
     n_sessoes = tamanho_total / sizeof(Sessao); // Calcula quantas structs cabem no arquivo
 
@@ -177,7 +172,7 @@ void cancelarSessao() {
         return;
     }
 
-    // 1b. Alocar memÛria RAM para todas as sessıes
+    // 1b. Alocar mem√≥ria RAM para todas as sess√µes
     array_de_sessoes = (Sessao*) malloc(n_sessoes * sizeof(Sessao));
     if (array_de_sessoes == NULL) {
         printf("ERRO FATAL: Falha ao alocar memoria!\n");
@@ -185,18 +180,18 @@ void cancelarSessao() {
         exit(1);
     }
 
-    // 1c. Ler TODAS as sessıes do arquivo para o array na RAM
+    // 1c. Ler TODAS as sess√µes do arquivo para o array na RAM
     fread(array_de_sessoes, sizeof(Sessao), n_sessoes, f);
-    fclose(f); // Fecha o arquivo, todos os dados j· est„o na RAM.
+    fclose(f); // Fecha o arquivo, todos os dados j√° est√£o na RAM.
 
     // --- FASE 2: Modificar os dados na RAM ---
     int i;
     for ( i = 0; i < n_sessoes; i++) {
         // Se acharmos o ID e ele estiver ATIVO
         if (array_de_sessoes[i].id_sessao == id_para_cancelar && array_de_sessoes[i].status == 1) {
-            array_de_sessoes[i].status = 0; // MUDAMOS O STATUS (aqui est· o cancelamento)
+            array_de_sessoes[i].status = 0; // MUDAMOS O STATUS (aqui est√° o cancelamento)
             encontrou = 1;
-            break; // J· achamos, podemos parar o loop
+            break; // J√° achamos, podemos parar o loop
         }
     }
 
@@ -206,11 +201,11 @@ void cancelarSessao() {
         f = fopen(ARQUIVO_SESSOES, "wb");
         if (f == NULL) {
             printf("ERRO FATAL: Nao foi possivel reescrever o arquivo!\n");
-            free(array_de_sessoes); // Libera a memÛria antes de sair
+            free(array_de_sessoes); // Libera a mem√≥ria antes de sair
             exit(1);
         }
 
-        // Salva o array INTEIRO (com a sess„o modificada) de volta no disco
+        // Salva o array INTEIRO (com a sess√£o modificada) de volta no disco
         fwrite(array_de_sessoes, sizeof(Sessao), n_sessoes, f);
         fclose(f); // Fecha o arquivo de escrita
         printf("\n>>> Sessao (ID: %d) cancelada com sucesso!\n\n", id_para_cancelar);
@@ -219,11 +214,9 @@ void cancelarSessao() {
         printf("\n>>> Sessao (ID: %d) nao encontrada ou ja estava cancelada.\n\n", id_para_cancelar);
     }
 
-    // --- FASE 4: Limpeza ---
-    // SEMPRE libere a memÛria que vocÍ alocou!
     free(array_de_sessoes);
 }
-	void limparBufferTecladoSessoes() { // Mudei o nome para evitar conflito
+	void limparBufferTecladoSessoes() { 
     	int c;
     	while ((c = getchar()) != '\n' && c != EOF);
 }
@@ -235,7 +228,7 @@ void cancelarSessao() {
         printf("1. Agendar Nova Sessao\n");
         printf("2. Exibir Sessoes Disponiveis\n");
         printf("3. Cancelar Sessao\n");
-        printf("0. Voltar ao Menu Principal\n"); // <<< MUDAN«A IMPORTANTE
+        printf("0. Voltar ao Menu Principal\n"); // <<< MUDAN√áA IMPORTANTE
         printf("----------------------------\n");
         printf("Escolha uma opcao: ");
 
@@ -259,10 +252,11 @@ void cancelarSessao() {
                 break;
             case 0:
                 printf("Voltando ao menu principal...\n");
-                break; // Simplesmente sai do loop e a funÁ„o termina
+                break; // Simplesmente sai do loop e a fun√ß√£o termina
             default:
                 printf("Opcao invalida! Tente novamente.\n");
                 break;
         }
-    } while (opcao != 0); // O loop termina quando o usu·rio digita 0
+    } while (opcao != 0); // O loop termina quando o usu√°rio digita 0
 }
+
