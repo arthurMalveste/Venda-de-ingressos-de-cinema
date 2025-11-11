@@ -1,15 +1,8 @@
-/*
- * Arquivo: sessoes.c
- * Descrição: Implementação (código) das funções do módulo de sessões.
- * Contém toda a lógica de manipulação de arquivos e dados.
- */
-
 #include <stdio.h>    // Para printf, scanf, FILE, fopen, fclose, etc.
 #include <stdlib.h>   // Para malloc, free, exit
 #include "sessoes.h"  
 
 // --- Constantes ---
-// Definir nomes de arquivos como constantes é uma boa prática.
 #define ARQUIVO_SESSOES "sessoes.dat"
 #define ARQUIVO_CONTADOR "contador_sessao.dat"
 
