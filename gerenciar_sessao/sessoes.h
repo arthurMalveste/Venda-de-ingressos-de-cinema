@@ -1,12 +1,3 @@
-/*
- * Arquivo: sessoes.h
- * Descrição: Header (cardápio) para o módulo de gerenciamento de sessões.
- * Define as estruturas de dados e os protótipos das funções públicas.
- */
-
-// 1. "Guardas de Inclusão"
-// Evitam que este arquivo seja incluído mais de uma vez por engano,
-// o que causaria erros de "redefinição".
 #ifndef SESSOES_H
 #define SESSOES_H
 
