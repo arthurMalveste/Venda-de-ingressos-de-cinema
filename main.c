@@ -21,7 +21,7 @@ int main() {
     int opcao;
 
     do {
-        printf("\n\n--- MENU PRINCIPAL - SKYCARE CINEMAS ---\n");
+        printf("\n\n--- MENU PRINCIPAL - VIEWCINEMAS ---\n");
         printf("1. Gerenciar Filmes\n");
         printf("2. Gerenciar Salas\n");
         printf("3. Gerenciar Sessoes\n");
@@ -50,11 +50,9 @@ int main() {
                 menuGerenciarSessoes(); // Chama o menu de Sessões
                 break;
             case 4:
-                printf("\nModulo de Vendas - Em desenvolvimento...\n");
                 menuRealizarVenda(); // Chama o menu de Vendas
                 break;
             case 5:
-                printf("\nModulo de Relatorios - Em desenvolvimento...\n");
                 menuRelatorios(); // Chama o menu de relatório
                 break;
             case 0:
