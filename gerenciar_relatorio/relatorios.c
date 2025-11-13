@@ -83,12 +83,14 @@ void relatorioVendasPorSessao() {
         if (sessao_temp.status == 0) continue; // Pula sessoes canceladas
         
         encontrou_sessoes = 1;
-        int encontrado_f = 0, encontrado_s = 0;
+        
+        // Não precisamos mais do 'encontrado_f' ou 'Filme filme ='
+        int encontrado_s = 0;
         
         // 1. Buscar dados complementares
-        Filme filme = helperEncontrarFilme(sessao_temp.id_filme, &encontrado_f);
         Sala sala = helperEncontrarSala(sessao_temp.id_sala, &encontrado_s);
-        
+
+
         // 2. Calcular vendas
         int ingressos_vendidos = 0;
         float receita_total = 0.0f;
@@ -102,9 +104,13 @@ void relatorioVendasPorSessao() {
         
         // 4. Imprimir relatório da sessão
         printf("----------------------------------------\n");
+        
+   
+        // Agora imprimimos o 'nome_filme' direto da 'sessao_temp'
         printf("Sessao ID: %d (Filme: %s)\n", 
                sessao_temp.id_sessao, 
-               encontrado_f ? filme.titulo : "Nao encontrado");
+               sessao_temp.nome_filme); // Não precisamos mais do 'encontrado_f'
+    
         
         printf("  Data: %02d/%02d/%d | Hora: %02d:%02d\n",
                sessao_temp.data_sessao.dia, sessao_temp.data_sessao.mes, sessao_temp.data_sessao.ano,
@@ -141,22 +147,20 @@ void relatorioOcupacaoPorSala() {
     }
 
     while (fread(&sala_temp, sizeof(Sala), 1, f_salas) == 1) {
-        if (sala_temp.status == 0) continue; // Pula salas desativadas
+        if (sala_temp.status == 0) continue; 
 
         encontrou_salas = 1;
         int total_ingressos_vendidos_sala = 0;
         int total_capacidade_sessoes_sala = 0;
         Sessao sessao_temp;
 
-        // Agora, para esta sala, precisamos varrer todas as sessoes
         FILE* f_sessoes = fopen(ARQUIVO_SESSOES, "rb");
         if (f_sessoes != NULL) {
             while (fread(&sessao_temp, sizeof(Sessao), 1, f_sessoes) == 1) {
-                // Se a sessão pertence a esta sala e está ativa
                 if (sessao_temp.id_sala == sala_temp.id_sala && sessao_temp.status == 1) {
                     
                     int ingressos_sessao = 0;
-                    float receita_ignorar = 0; // Não precisamos da receita aqui
+                    float receita_ignorar = 0; 
                     helperCalcularVendasSessao(sessao_temp.id_sessao, &ingressos_sessao, &receita_ignorar);
                     
                     total_ingressos_vendidos_sala += ingressos_sessao;
@@ -166,7 +170,6 @@ void relatorioOcupacaoPorSala() {
             fclose(f_sessoes);
         }
 
-        // Calcular taxa média de ocupação da sala
         float taxa_media_ocupacao = 0.0f;
         if (total_capacidade_sessoes_sala > 0) {
             taxa_media_ocupacao = ((float)total_ingressos_vendidos_sala / (float)total_capacidade_sessoes_sala) * 100.0f;

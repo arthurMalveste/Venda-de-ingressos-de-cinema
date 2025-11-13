@@ -1,7 +1,8 @@
 #ifndef SESSOES_H
 #define SESSOES_H
 
-// --- Estruturas de Dados ---
+#include <stdio.h> // Adicionado para FILE (boa prática)
+
 
 // Struct auxiliar para a Data
 typedef struct {
@@ -18,13 +19,13 @@ typedef struct {
 
 // Struct principal para a Sessão
 typedef struct {
-    int id_sessao;      // ID único (ex: 1, 2, 3...)
-    int id_filme;       // ID do filme (do módulo de filmes)
-    int id_sala;        // ID da sala (do módulo de salas)
-    Data data_sessao;   // Struct de Data aninhada
+    int id_sessao;     
+    char nome_filme[50]; // Armazena o NOME do filme
+    int id_sala;         // ID da sala (do módulo de salas)
+    Data data_sessao;    // Struct de Data aninhada
     Horario hora_sessao; // Struct de Horário aninhada
     float preco;
-    int status;         // 1 = Ativa, 0 = Cancelada
+    int status;          // 1 = Ativa, 0 = Cancelada
 } Sessao;
 
 /*
@@ -52,4 +53,3 @@ void menuGerenciarSessoes();
 
 
 #endif // Fim da guarda de inclusão
-    
