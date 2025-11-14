@@ -91,7 +91,7 @@ void atualizarInfoFilmes(const char *arquivo, const char *titulo, Filme atualiza
                 "Filme: %s;\n"
                 "Genero: %s; \n"
                 "Sinopse: %s; \n"
-                "Duração: %dmin; \n"
+                "Duracao: %dmin; \n"
                 "Classificacao indicativa: %d; \n"
                 "Cartaz: %d; \n"
                 "Valor do Ingresso para esse filme: %.2f; \n"
@@ -109,7 +109,7 @@ void atualizarInfoFilmes(const char *arquivo, const char *titulo, Filme atualiza
         }
     }
 
-    printf("O filme %s não foi encontrado em cartaz. \n", titulo);
+    printf("O filme %s nao foi encontrado em cartaz. \n", titulo);
     fclose(file);
 
 };
